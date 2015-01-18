@@ -41,13 +41,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
             }
         });
 
-        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
-            actionBar.addTab(
-                    actionBar.newTab()
-                             .setText(mSectionsPagerAdapter.getPageTitle(i))
-                             .setTabListener(this)
-            );
-        }
+//        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
+//            actionBar.addTab(
+//                    actionBar.newTab()
+//                             .setText(mSectionsPagerAdapter.getPageTitle(i))
+//                             .setTabListener(this)
+//            );
+//        }
 
     }
 

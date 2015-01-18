@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="light_brown" type="color">#c8b7be</item>
+    <item name="brown" type="color">#48373e</item>
+    <item name="dark_brown" type="color">#241c1f</item>
+
+    <item name="background" type="color">#5b5b64</item>
+    <item name="slider" type="color">#9f95ae</item>
+
+    <item name="light_green" type="color">#dbe3db</item>
+    <item name="green" type="color">#b7c8b7</item>
+
+
+</resources>
