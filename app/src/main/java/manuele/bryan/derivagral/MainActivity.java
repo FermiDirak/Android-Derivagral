@@ -2,24 +2,13 @@ package manuele.bryan.derivagral;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.FragmentTransaction;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
 import manuele.bryan.derivagral.Adapters.SectionsPagerAdapter;
 
 
@@ -27,23 +16,21 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
     
-    @InjectView(R.id.editText) TextView textView;
+    TextView equationText;
 
-    ArrayList<String> arrayEquation = new ArrayList<String>();
-    String yEquals = "y=";
     String equationString = "";
-    String equationLatex = "";
-
-    String derivativeEquation = "";
-    String intergralEquation = "";
+    String derivativeEquationURL = "";
+    String intergralEquationURL = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ActionBar actionBar = getActionBar();
+        equationText = (TextView) findViewById(R.id.equationText);
 
+        //enable tabs
+        final ActionBar actionBar = getActionBar();
         mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -62,7 +49,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
             );
         }
 
-        ButterKnife.inject(this);
     }
 
     @Override
@@ -90,100 +76,25 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
     @Override
     public void respond(String data) {
         if (data.equals(getString(R.string.enter))) {
-            solveDerivative();
-            solveIntegral();
-            enterEquation();
+            createAnswerDialog();
             return;
         }
         else if (data.equals(getString(R.string.c))) {
-            arrayEquation.clear();
+            equationString = "";
         }
         else if (data.equals(getString(R.string.delete))) {
-            if (arrayEquation.size() > 0) {
-                arrayEquation.remove(arrayEquation.size() - 1);
+            if (equationString.length() > 0) {
+                equationString = equationString.substring(0, equationString.length() - 1);
             }
         } else {
-            arrayEquation.add(data);
+            equationString = equationString + data;
         }
 
-        formatEquation();
-
-        textView.setText(yEquals + equationString);
+        equationText.setText(equationString);
 //        textView.setText(Html.fromHtml("2<small><sup>5</sup></small>"));
     }
 
-    public void formatEquation() {
-        equationToString();
-        equationToLatex();
-    }
-
-    public String equationToString() {
-        equationString = "";
-        for (String part : arrayEquation) {
-            equationString = equationString + part;
-        }
-        return equationString;
-    }
-
-    public String equationToLatex() {
-        String equation = equationToString();
-
-        String equationLatex = "f(x) = ";
-
-        for (int i = 0; i < equation.length(); i++) {
-            Character character = equation.charAt(i);
-            equationLatex = equationLatex + character;
-
-            //in the case of exponents
-            if(character.equals('(') && i > 0 && ((Character) equation.charAt(i-1)).equals('^')) {
-                equationLatex = equationLatex.substring(0, equationLatex.length() - 1);
-                equationLatex = equationLatex + "{(";
-
-                int leftParenCount = -1;
-                for (int j = i; j < equation.length(); j++) {
-                    Character jCharacter = equation.charAt(j);
-                    if (jCharacter.equals(')')) {
-                        if (leftParenCount == 0) {
-                            equation = equation.substring(0, j)
-                                    + ")}"
-                                    + equation.substring(j+1, equation.length());
-                            break;
-                        } else {
-                            leftParenCount--;
-                        }
-                    } else if (jCharacter.equals('(')) {
-                        leftParenCount++;
-                    }
-                    if (j == equation.length()-1) {
-
-                        equation = equation.substring(0, j)
-                                + ")}";
-                        break;
-                    }
-                }
-            }
-        }
-        return equationLatex;
-    }
-
-    private void solveDerivative() {
-        
-    }
-
-    private void solveIntegral() {
-
-    }
-
-    private void enterEquation() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("y=" + equationString
-                                    + "\n"
-                                    + "y'=" + equationString)
-                          .setCancelable(true);
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        alertDialog.show();
+    private void createAnswerDialog() {
 
     }
 
@@ -198,16 +109,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    }
-
-    private String doubleEscapeTeX(String s) {
-        String t="";
-        for (int i=0; i < s.length(); i++) {
-            if (s.charAt(i) == '\'') t += '\\';
-            if (s.charAt(i) != '\n') t += s.charAt(i);
-            if (s.charAt(i) == '\\') t += "\\";
-        }
-        return t;
     }
 
 }

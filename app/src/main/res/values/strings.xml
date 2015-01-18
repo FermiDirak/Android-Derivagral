@@ -26,7 +26,7 @@
     <string name="zero">0</string>
     <string name="power">^</string>
     <string name="divide">/</string>
-    <string name="enter">Enter</string>
+    <string name="enter">=</string>
     <string name="title_section1">title One</string>
     <string name="title_section2">title Two</string>
     <string name="title_section3">title Three</string>

@@ -167,9 +167,9 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/submit"
+            android:id="@+id/enter"
             android:layout_weight="1"
-            android:text="="
+            android:text="@string/enter"
             android:textDirection="locale"
             style="@style/calculatorButton"
             android:layout_width="wrap_content"

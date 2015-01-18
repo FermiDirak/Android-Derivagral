@@ -1,45 +1,95 @@
 package manuele.bryan.derivagral;
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.InjectViews;
-import butterknife.OnClick;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class NumberPadOne extends Fragment {
     FragComm comm;
 
-    Button bBlackThree, bDelete, bC, bDivide,
-            bLeftParen, bRightParen, bPower, bMultiply,
-            bSeven, bEight, bNine, bMinus,
-            Bfour, bFive, bSix, bPlus,
-            bOne, bTwo, bThree, bBlankTwo,
-            bZero, bDecimal, bBlank;
+    List<Button> buttons = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_number_pad_one, container, false);
-        ButterKnife.inject(this, view);
+
+        Button bBlankThree = (Button) view.findViewById(R.id.blankThree);
+        Button bDelete = (Button) view.findViewById(R.id.delete);
+        Button bC = (Button) view.findViewById(R.id.c);
+        Button bDivide = (Button) view.findViewById(R.id.divide);
+
+        Button bLeftParen = (Button) view.findViewById(R.id.leftParen);
+        Button bRightParen = (Button) view.findViewById(R.id.rightParen);
+        Button bPower = (Button) view.findViewById(R.id.power);
+        Button bMultiply = (Button) view.findViewById(R.id.multiply);
+
+        Button bSeven = (Button) view.findViewById(R.id.seven);
+        Button bEight = (Button) view.findViewById(R.id.eight);
+        Button bNine = (Button) view.findViewById(R.id.nine);
+        Button bMinus = (Button) view.findViewById(R.id.minus);
+
+        Button bFour = (Button) view.findViewById(R.id.four);
+        Button bFive = (Button) view.findViewById(R.id.five);
+        Button bSix = (Button) view.findViewById(R.id.six);
+        Button bPlus = (Button) view.findViewById(R.id.plus);
+
+        Button bOne = (Button) view.findViewById(R.id.one);
+        Button bTwo = (Button) view.findViewById(R.id.two);
+        Button bThree = (Button) view.findViewById(R.id.three);
+        Button bEquals = (Button) view.findViewById(R.id.enter);
+
+        Button bZero = (Button) view.findViewById(R.id.zero);
+        Button bDecimal = (Button) view.findViewById(R.id.decimal);
+
+        buttons.add(bBlankThree);
+        buttons.add(bDelete);
+        buttons.add(bC);
+        buttons.add(bDivide);
+        buttons.add(bLeftParen);
+        buttons.add(bRightParen);
+        buttons.add(bPower);
+        buttons.add(bMultiply);
+        buttons.add(bSeven);
+        buttons.add(bEight);
+        buttons.add(bNine);
+        buttons.add(bMinus);
+        buttons.add(bFour);
+        buttons.add(bFive);
+        buttons.add(bSix);
+        buttons.add(bPlus);
+        buttons.add(bOne);
+        buttons.add(bTwo);
+        buttons.add(bThree);
+        buttons.add(bEquals);
+        buttons.add(bZero);
+        buttons.add(bDecimal);
+
+        for (final Button button : buttons) {
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String typed = button.getText().toString();
+
+                    comm.respond(typed);
+                }
+            });
+        }
 
         setUpFont();
 
         return view;
     }
 
+    //TODO: set up font
     private void setUpFont() {
-        bBlackThree.findViewById(R.id.blankThree);
-        bDelete.findViewById(R.id.delete);
-        bC.findViewById(R.id.c);
-        bDivide.findViewById(R.id.divide);
-
-
 
     }
 
@@ -53,24 +103,6 @@ public class NumberPadOne extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
-    }
-
-    @OnClick({  R.id.blankThree, R.id.delete, R.id.c, R.id.divide,
-            R.id.leftParen, R.id.rightParen, R.id.power, R.id.multiply,
-            R.id.seven, R.id.eight, R.id.nine, R.id.minus,
-            R.id.four, R.id.five, R.id.six, R.id.plus,
-            R.id.one, R.id.two, R.id.three, R.id.blankTwo,
-            R.id.zero, R.id.decimal, R.id.blank })
-    public void click(Button button) {
-        String typed = button.getText().toString();
-
-        //special cases
-        if (button.getText().toString().equals(getString(R.string.power))) {
-            typed = "^(";
-        }
-
-        comm.respond(typed);
     }
 
 }
