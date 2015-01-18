@@ -29,9 +29,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
     
     @InjectView(R.id.editText) TextView textView;
 
-    Typeface light_font = Typeface.createFromAsset(getAssets(),
-            "Roboto-Condensed.ttf");
-
     ArrayList<String> arrayEquation = new ArrayList<String>();
     String yEquals = "y=";
     String equationString = "";
@@ -46,7 +43,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
         setContentView(R.layout.activity_main);
 
         final ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
