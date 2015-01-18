@@ -91,7 +91,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
         }
 
         equationText.setText(equationString);
-//        textView.setText(Html.fromHtml("2<small><sup>5</sup></small>"));
     }
 
     private void createAnswerDialog() {
