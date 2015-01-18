@@ -16,6 +16,10 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="calculatorButtonDark" parent="calculatorButton">
+        <item name="android:background">@drawable/calculator_button_dark</item>
+    </style>
+
     <style name="row" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">fill_parent</item>
