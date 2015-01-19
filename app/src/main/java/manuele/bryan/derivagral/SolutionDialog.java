@@ -45,10 +45,14 @@ public class SolutionDialog extends DialogFragment {
         derivativeImageView = (ImageView) view.findViewById(R.id.derivativeImageView);
         integralImageView = (ImageView) view.findViewById(R.id.integralImageView);
 
+
+        AlphaAPI alpha = new AlphaAPI(getActivity().getBaseContext(), function);
+
+        String originalFunction = function;
+        String derivativeFunction = alpha.getFunctionURL();
+        String integralFunction = alpha.getDerivativeURL();
+
         builder.setView(view);
-
-
-
         return builder.create();
     }
 

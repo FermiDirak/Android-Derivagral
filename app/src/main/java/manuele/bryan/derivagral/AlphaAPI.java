@@ -18,9 +18,9 @@ public class AlphaAPI {
     public static final int DERIVATIVE = 1;
     public static final int INTEGRAL = 2;
 
-    public String functionURL;
-    public String derivativeURL;
-    public String integralURL;
+    public String functionURL = "";
+    public String derivativeURL = "";
+    public String integralURL = "";
 
     public AlphaAPI(Context context, String input) {
         WAEngine engine = new WAEngine();
@@ -80,6 +80,18 @@ public class AlphaAPI {
                 }
             }
         }
+    }
+
+    public String getFunctionURL() {
+        return functionURL;
+    }
+
+    public String getDerivativeURL() {
+        return derivativeURL;
+    }
+
+    public String getIntegralURL() {
+        return integralURL;
     }
 
 }
