@@ -16,7 +16,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
     
-    TextView equationText;
+    TextView equationTextView;
 
     String equationString = "";
     String derivativeEquationURL = "";
@@ -27,27 +27,13 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        equationText = (TextView) findViewById(R.id.equationText);
+        equationTextView = (TextView) findViewById(R.id.equationText);
 
         //enable tabs
         final ActionBar actionBar = getActionBar();
         mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-                //actionBar.setSelectedNavigationItem(position);
-            }
-        });
-
-//        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
-//            actionBar.addTab(
-//                    actionBar.newTab()
-//                             .setText(mSectionsPagerAdapter.getPageTitle(i))
-//                             .setTabListener(this)
-//            );
-//        }
 
     }
 
@@ -90,16 +76,19 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
             equationString = equationString + data;
         }
 
-        equationText.setText(equationString);
+        equationTextView.setText(equationString);
     }
 
     private void createAnswerDialog() {
+        SolutionDialog solutionDialog = SolutionDialog.newInstance(equationString);
 
+        solutionDialog.show(getFragmentManager(), "solutionDialog");
     }
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         mViewPager.setCurrentItem(tab.getPosition());
+
     }
 
     @Override

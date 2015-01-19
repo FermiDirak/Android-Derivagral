@@ -9,10 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_centerHorizontal="true"
-        android:background="#4fc3f7" />
+        android:background="@color/soft_green" />
 
     <TextView
         android:text="function:"
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content" />
@@ -25,6 +26,7 @@
 
     <TextView
         android:text="derivative:"
+        android:textSize="18dp"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -38,6 +40,7 @@
 
     <TextView
         android:text="integral:"
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content" />

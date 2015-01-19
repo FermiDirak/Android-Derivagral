@@ -47,6 +47,8 @@ public class SolutionDialog extends DialogFragment {
 
         builder.setView(view);
 
+
+
         return builder.create();
     }
 
