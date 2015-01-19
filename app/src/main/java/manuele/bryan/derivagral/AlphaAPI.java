@@ -94,13 +94,11 @@ public class AlphaAPI {
     public String formatFunction(String function) {
         String formattedFunction = "";
 
-        System.out.println(function);
-
         for (int i = 0; i < function.length(); i++) {
             String character = String.valueOf(function.charAt(i));
 
             if (character.equals("=")) {
-                formattedFunction = function.substring(i + 1, function.length() - 1);
+                formattedFunction = function.substring(i + 1, function.length());
                 break;
             }
 
