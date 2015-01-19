@@ -19,8 +19,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
     TextView equationTextView;
 
     String equationString = "";
-    String derivativeEquationURL = "";
-    String intergralEquationURL = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +27,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
 
         equationTextView = (TextView) findViewById(R.id.equationText);
 
-        //enable tabs
-        final ActionBar actionBar = getActionBar();
         mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
