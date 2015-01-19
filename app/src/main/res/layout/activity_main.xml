@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="4dp"
-        android:background="@color/green">
+        android:background="@color/soft_green">
 
         <LinearLayout
             android:background="@color/light_green"
@@ -45,7 +45,7 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
-        android:layout_margin="3dp"
+        android:layout_margin="4dp"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
