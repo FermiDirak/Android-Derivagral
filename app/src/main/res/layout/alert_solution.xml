@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent">
 
     <ImageView
@@ -19,43 +19,42 @@
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content" />
 
-    <ImageView
-        android:id="@+id/functionImageView"
+    <TextView
+        android:id="@+id/functionTextView"
+        android:textSize="24dp"
         android:layout_gravity="center_horizontal"
-        android:background="#aaaaff"
-        android:scaleType="centerInside"
-        android:layout_height="80dp"
-        android:layout_width="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:text="derivative:"
         android:textSize="18dp"
+        android:padding="10dp"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content" />
 
-    <ImageView
-        android:id="@+id/derivativeImageView"
+    <TextView
+        android:id="@+id/derivativeTextView"
+        android:textSize="24dp"
         android:layout_gravity="center_horizontal"
-        android:background="#aaaaff"
-        android:layout_height="80dp"
-        android:scaleType="centerInside"
-        android:layout_width="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:text="integral:"
         android:textSize="18dp"
+        android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content" />
 
-    <ImageView
-        android:id="@+id/integralImageView"
+    <TextView
+        android:id="@+id/integralTextView"
+        android:textSize="24dp"
         android:layout_gravity="center_horizontal"
-        android:background="#aaaaff"
-        android:scaleType="centerInside"
-        android:layout_height="80dp"
-        android:layout_width="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

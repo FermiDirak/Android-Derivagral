@@ -9,7 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SolutionDialog extends DialogFragment {
 
@@ -17,9 +17,9 @@ public class SolutionDialog extends DialogFragment {
 
     private Context context;
 
-    private ImageView functionImageView;
-    private ImageView derivativeImageView;
-    private ImageView integralImageView;
+    private TextView functionTextView;
+    private TextView derivativeTextView;
+    private TextView integralTextView;
 
     public String function;
 
@@ -42,9 +42,9 @@ public class SolutionDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.alert_solution, null);
 
-        functionImageView = (ImageView) view.findViewById(R.id.functionImageView);
-        derivativeImageView = (ImageView) view.findViewById(R.id.derivativeImageView);
-        integralImageView = (ImageView) view.findViewById(R.id.integralImageView);
+        functionTextView = (TextView) view.findViewById(R.id.functionTextView);
+        derivativeTextView = (TextView) view.findViewById(R.id.derivativeTextView);
+        integralTextView = (TextView) view.findViewById(R.id.integralTextView);
 
         new DownloadSolutionTask().execute(function);
 
@@ -66,7 +66,10 @@ public class SolutionDialog extends DialogFragment {
 
         @Override
         protected void onPostExecute(AlphaAPI alpha) {
-            System.out.println("HERE WE GO: " + alpha.derivativeFunction);
+            functionTextView.setText(alpha.getInputFunction());
+            derivativeTextView.setText(alpha.getDerivativeFunction());
+            integralTextView.setText(alpha.getIntegralFunction());
+
         }
 
     }

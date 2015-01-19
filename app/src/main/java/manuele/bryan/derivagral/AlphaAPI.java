@@ -18,7 +18,7 @@ public class AlphaAPI {
     public static final int DERIVATIVE = 1;
     public static final int INTEGRAL = 2;
 
-    public String functionURL = "";
+    public String inputFunction = "";
     public String derivativeFunction = "";
     public String integralFunction = "";
 
@@ -62,11 +62,10 @@ public class AlphaAPI {
             for (Object element : subpod.getContents()) {
                 if (element instanceof WAPlainText) {
                     String function = ((WAPlainText) element).getText();
-                    System.out.println("TEST: " + function);
 
                     switch (type) {
                         case FUNCTION:
-                            functionURL = function;
+                            inputFunction = function;
                             return;
                         case DERIVATIVE:
                             derivativeFunction = function;
@@ -80,19 +79,35 @@ public class AlphaAPI {
         }
     }
 
-    public String getFunctionURL() {
-        return functionURL;
+    public String getInputFunction() {
+        return inputFunction;
     }
 
     public String getDerivativeFunction() {
-        return derivativeFunction;
+        return formatFunction(derivativeFunction);
     }
 
     public String getIntegralFunction() {
-        return integralFunction;
+        return formatFunction(integralFunction);
     }
 
+    public String formatFunction(String function) {
+        String formattedFunction = "";
 
+        System.out.println(function);
+
+        for (int i = 0; i < function.length(); i++) {
+            String character = String.valueOf(function.charAt(i));
+
+            if (character.equals("=")) {
+                formattedFunction = function.substring(i + 1, function.length() - 1);
+                break;
+            }
+
+        }
+
+        return formattedFunction;
+    }
 
 }
 
