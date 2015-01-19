@@ -3,6 +3,7 @@ package manuele.bryan.derivagral;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
@@ -78,9 +79,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
     }
 
     private void createAnswerDialog() {
-        SolutionDialog solutionDialog = SolutionDialog.newInstance(equationString);
-
-        solutionDialog.show(getFragmentManager(), "solutionDialog");
+        new DownloadSolutionTask().execute();
     }
 
     @Override
@@ -95,6 +94,29 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
+
+    private class DownloadSolutionTask extends AsyncTask<String, String, AlphaAPI> {
+        @Override
+        protected AlphaAPI doInBackground(String... strings) {
+            return new AlphaAPI(getBaseContext(), equationString);
+        }
+
+        @Override
+        protected void onPostExecute(AlphaAPI alpha) {
+            String function = alpha.getInputFunction();
+            String derivative = alpha.getDerivativeFunction();
+            String integral = alpha.getIntegralFunction();
+
+            createAnswerDialog(function, derivative, integral);
+
+        }
+
+        private void createAnswerDialog(String function, String derivative, String integral) {
+            SolutionDialog solutionDialog = SolutionDialog.newInstance(function, derivative, integral);
+            solutionDialog.show(getFragmentManager(), "solutionDialog");
+        }
+
     }
 
 }
