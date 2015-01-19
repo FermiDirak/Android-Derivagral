@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 import com.wolfram.alpha.WAEngine;
 import com.wolfram.alpha.WAException;
-import com.wolfram.alpha.WAImage;
+import com.wolfram.alpha.WAPlainText;
 import com.wolfram.alpha.WAPod;
 import com.wolfram.alpha.WAQuery;
 import com.wolfram.alpha.WAQueryResult;
@@ -19,13 +19,13 @@ public class AlphaAPI {
     public static final int INTEGRAL = 2;
 
     public String functionURL = "";
-    public String derivativeURL = "";
-    public String integralURL = "";
+    public String derivativeFunction = "";
+    public String integralFunction = "";
 
     public AlphaAPI(Context context, String input) {
         WAEngine engine = new WAEngine();
         engine.setAppID(APP_ID);
-        engine.addFormat("image");
+        engine.addFormat("plaintext");
 
         WAQuery query = engine.createQuery();
         query.setInput(input);
@@ -59,22 +59,20 @@ public class AlphaAPI {
 
     public void retrieveSubPod(WAPod pod, int type) {
         for (WASubpod subpod : pod.getSubpods()) {
-
-            System.out.println(subpod.getContents().length);
-
             for (Object element : subpod.getContents()) {
-                if (element instanceof WAImage) {
-                    String url = ((WAImage) element).getURL();
+                if (element instanceof WAPlainText) {
+                    String function = ((WAPlainText) element).getText();
+                    System.out.println("TEST: " + function);
 
                     switch (type) {
                         case FUNCTION:
-                            functionURL = url;
+                            functionURL = function;
                             return;
                         case DERIVATIVE:
-                            derivativeURL = url;
+                            derivativeFunction = function;
                             return;
                         case INTEGRAL:
-                            integralURL = url;
+                            integralFunction = function;
                             return;
                     }
                 }
@@ -86,13 +84,15 @@ public class AlphaAPI {
         return functionURL;
     }
 
-    public String getDerivativeURL() {
-        return derivativeURL;
+    public String getDerivativeFunction() {
+        return derivativeFunction;
     }
 
-    public String getIntegralURL() {
-        return integralURL;
+    public String getIntegralFunction() {
+        return integralFunction;
     }
+
+
 
 }
 

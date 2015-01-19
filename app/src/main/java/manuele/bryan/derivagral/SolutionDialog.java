@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,12 +46,7 @@ public class SolutionDialog extends DialogFragment {
         derivativeImageView = (ImageView) view.findViewById(R.id.derivativeImageView);
         integralImageView = (ImageView) view.findViewById(R.id.integralImageView);
 
-
-        AlphaAPI alpha = new AlphaAPI(getActivity().getBaseContext(), function);
-
-        String originalFunction = function;
-        String derivativeFunction = alpha.getFunctionURL();
-        String integralFunction = alpha.getDerivativeURL();
+        new DownloadSolutionTask().execute(function);
 
         builder.setView(view);
         return builder.create();
@@ -60,6 +56,19 @@ public class SolutionDialog extends DialogFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         context = activity;
+    }
+
+    private class DownloadSolutionTask extends AsyncTask<String, String, AlphaAPI> {
+        @Override
+        protected AlphaAPI doInBackground(String... strings) {
+            return new AlphaAPI(context, function);
+        }
+
+        @Override
+        protected void onPostExecute(AlphaAPI alpha) {
+            System.out.println("HERE WE GO: " + alpha.derivativeFunction);
+        }
+
     }
 
 }
