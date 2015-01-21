@@ -7,7 +7,10 @@
 
     <style name="calculatorButton" parent="android:Theme.Holo.Light.NoActionBar">
         <item name="android:background">@drawable/calculator_button</item>
-        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
         <item name="android:textSize">40sp</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:layout_width">fill_parent</item>

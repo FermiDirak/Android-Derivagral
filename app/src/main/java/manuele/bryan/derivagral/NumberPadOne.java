@@ -12,13 +12,12 @@ import java.util.List;
 
 
 public class NumberPadOne extends Fragment {
-    FragComm comm;
+    public FragComm comm;
 
     List<Button> buttons = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_number_pad_one, container, false);
 
         Button bBlankThree = (Button) view.findViewById(R.id.blankThree);

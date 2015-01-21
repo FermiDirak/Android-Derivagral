@@ -1,9 +1,63 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="manuele.bryan.derivagral.NumberPadTwo">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="manuele.bryan.derivagral.NumberPadTwo">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:id="@+id/row1"
+        style="@style/row"
+        android:layout_weight="1">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/sin"
+            style="@style/calculatorButtonDark"
+            android:text="@string/sin" />
+
+        <Button
+            android:id="@+id/cos"
+            style="@style/calculatorButtonDark"
+            android:text="@string/cos" />
+
+        <Button
+            android:id="@+id/tan"
+            style="@style/calculatorButtonDark"
+            android:text="@string/tan" />
+
+        <Button
+            android:id="@+id/pi"
+            style="@style/calculatorButtonDark"
+            android:text="@string/pi" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row2"
+        style="@style/row"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/arcsin"
+            style="@style/calculatorButtonDark"
+            android:text="@string/arcsin" />
+
+        <Button
+            android:id="@+id/arccos"
+            style="@style/calculatorButtonDark"
+            android:text="@string/arccos" />
+
+        <Button
+            android:id="@+id/arctan"
+            style="@style/calculatorButtonDark"
+            android:text="@string/arctan" />
+
+        <Button
+            android:id="@+id/e"
+            style="@style/calculatorButtonDark"
+            android:text="@string/e" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -14,47 +14,91 @@
     <TextView
         android:text="function:"
         android:textSize="18dp"
-        android:padding="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/functionTextView"
-        android:textSize="24dp"
+    <HorizontalScrollView
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/functionTextView"
+            android:textSize="24dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </HorizontalScrollView>
 
     <TextView
         android:text="derivative:"
         android:textSize="18dp"
-        android:padding="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content" />
 
+    <HorizontalScrollView
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <TextView
         android:id="@+id/derivativeTextView"
         android:textSize="24dp"
-        android:layout_gravity="center_horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    </HorizontalScrollView>
 
     <TextView
         android:text="integral:"
         android:textSize="18dp"
-        android:padding="10dp"
-        android:layout_width="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
+    <HorizontalScrollView
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/integralTextView"
         android:textSize="24dp"
-        android:layout_gravity="center_horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    </HorizontalScrollView>
+    
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="5dp" />
 
 </LinearLayout>

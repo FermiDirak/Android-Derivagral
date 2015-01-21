@@ -1,22 +1,23 @@
 package manuele.bryan.derivagral;
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import manuele.bryan.derivagral.Adapters.SectionsPagerAdapter;
 
 
-public class MainActivity extends Activity implements ActionBar.TabListener, FragComm {
+public class MainActivity extends Activity implements FragComm {
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
-    
+
+    ProgressBar progressBar;
     TextView equationTextView;
 
     String equationString = "";
@@ -27,10 +28,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
         setContentView(R.layout.activity_main);
 
         equationTextView = (TextView) findViewById(R.id.equationText);
-
-        mSectionsPagerAdapter = new SectionsPagerAdapter(this, getFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
     }
 
@@ -82,21 +80,14 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
         new DownloadSolutionTask().execute();
     }
 
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        mViewPager.setCurrentItem(tab.getPosition());
-
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    }
-
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    }
-
     private class DownloadSolutionTask extends AsyncTask<String, String, AlphaAPI> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+
+        }
+
         @Override
         protected AlphaAPI doInBackground(String... strings) {
             return new AlphaAPI(getBaseContext(), equationString);
@@ -109,6 +100,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Fra
             String integral = alpha.getIntegralFunction();
 
             createAnswerDialog(function, derivative, integral);
+            progressBar.setVisibility(View.GONE);
 
         }
 
