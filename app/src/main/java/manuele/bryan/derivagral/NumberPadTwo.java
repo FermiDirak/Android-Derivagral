@@ -1,6 +1,7 @@
 package manuele.bryan.derivagral;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,10 @@ public class NumberPadTwo extends Fragment {
         Button arcsin = (Button) view.findViewById(R.id.arcsin);
         Button arccos = (Button) view.findViewById(R.id.arccos);
         Button arctan = (Button) view.findViewById(R.id.arctan);
-        Button e   = (Button) view.findViewById(R.id.e);
+        Button e      = (Button) view.findViewById(R.id.e);
+        Button log  = (Button) view.findViewById(R.id.log);
+        Button ln   = (Button) view.findViewById(R.id.ln);
+        Button sqrt = (Button) view.findViewById(R.id.sqrt);
 
         buttons.add(sin);
         buttons.add(cos);
@@ -36,8 +40,15 @@ public class NumberPadTwo extends Fragment {
         buttons.add(arccos);
         buttons.add(arctan);
         buttons.add(e);
+        buttons.add(log);
+        buttons.add(ln);
+        buttons.add(sqrt);
+
+        Typeface typeface = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Roboto-Light.ttf");
 
         for (final Button button : buttons) {
+            button.setTypeface(typeface);
+
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

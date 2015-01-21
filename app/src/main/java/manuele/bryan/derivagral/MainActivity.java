@@ -1,6 +1,7 @@
 package manuele.bryan.derivagral;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -18,6 +19,7 @@ public class MainActivity extends Activity implements FragComm {
     ViewPager mViewPager;
 
     ProgressBar progressBar;
+    TextView fXTextView;
     TextView equationTextView;
 
     String equationString = "";
@@ -27,8 +29,14 @@ public class MainActivity extends Activity implements FragComm {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fXTextView = (TextView) findViewById(R.id.fXTextView);
         equationTextView = (TextView) findViewById(R.id.equationText);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        Typeface typeface = Typeface.createFromAsset(getBaseContext().getAssets(), "fonts/Roboto-Light.ttf");
+        fXTextView.setTypeface(typeface);
+        equationTextView.setTypeface(typeface);
+
 
     }
 

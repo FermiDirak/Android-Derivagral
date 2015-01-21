@@ -1,6 +1,7 @@
 package manuele.bryan.derivagral;
 
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +72,11 @@ public class NumberPadOne extends Fragment {
         buttons.add(bZero);
         buttons.add(bDecimal);
 
+        Typeface typeface = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Roboto-Light.ttf");
+
         for (final Button button : buttons) {
+            button.setTypeface(typeface);
+
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -82,15 +87,9 @@ public class NumberPadOne extends Fragment {
             });
         }
 
-        setUpFont();
-
         return view;
     }
 
-    //TODO: set up font
-    private void setUpFont() {
-
-    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
