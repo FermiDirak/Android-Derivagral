@@ -47,7 +47,7 @@ public class NumberPadOne extends Fragment {
         Button bEquals = (Button) view.findViewById(R.id.enter);
 
         Button bZero = (Button) view.findViewById(R.id.zero);
-        Button bDecimal = (Button) view.findViewById(R.id.decimal);
+        Button bX = (Button) view.findViewById(R.id.x);
 
         buttons.add(bBlankThree);
         buttons.add(bDelete);
@@ -70,7 +70,7 @@ public class NumberPadOne extends Fragment {
         buttons.add(bThree);
         buttons.add(bEquals);
         buttons.add(bZero);
-        buttons.add(bDecimal);
+        buttons.add(bX);
 
         Typeface typeface = Typeface.createFromAsset(getActivity().getBaseContext().getAssets(), "fonts/Roboto-Light.ttf");
 

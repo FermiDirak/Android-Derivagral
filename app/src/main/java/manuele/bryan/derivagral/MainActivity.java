@@ -75,8 +75,6 @@ public class MainActivity extends Activity implements FragComm {
             if (equationString.length() > 0) {
                 equationString = equationString.substring(0, equationString.length() - 1);
             }
-        } else if (data.equals(getString(R.string.decimal))) {
-            equationString = equationString + "x";
         } else{
             equationString = equationString + data;
         }
