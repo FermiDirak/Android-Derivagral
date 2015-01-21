@@ -6,14 +6,14 @@
     <item name="dark_brown" type="color">#241c1f</item>
     <item name="really_dark_brown" type="color">#090707</item>
 
-    <item name="background" type="color">#5b5b64</item>
+    <item name="background" type="color">#2f3140</item>
     <item name="slider" type="color">#9f95ae</item>
 
-    <item name="light_green" type="color">#dbe3db</item>
-    <item name="soft_green" type="color">#b7c8b7</item>
-    <item name="green" type="color">#93ac93</item>
-    <item name="dark_green" type="color">#6f916f</item>
-    <item name="second_green" type="color">#4faf97</item>
-    <item name="really_dark_green" type="color">#374837</item>
+    <item name="light_green" type="color">#7d968d</item>
+    <item name="soft_green" type="color">#2f3140</item>
+    <item name="green" type="color">#666a78</item>
+    <item name="dark_green" type="color">#4d5e65</item>
+    <item name="second_green" type="color">#2f3140</item>
+    <item name="really_dark_green" type="color">#1c1d26</item>
 
 </resources>

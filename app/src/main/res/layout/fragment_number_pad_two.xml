@@ -58,5 +58,30 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/row3"
+        style="@style/row">
+
+        <Button
+            android:id="@+id/log"
+            style="@style/secondCalculatorButton"
+            android:text="@string/log" />
+
+        <Button
+            android:id="@+id/ln"
+            style="@style/secondCalculatorButton"
+            android:text="@string/ln" />
+
+        <Button
+            android:id="@+id/sqrt"
+            style="@style/secondCalculatorButton"
+            android:text="@string/sqrt" />
+
+        <Button
+            android:id="@+id/blank"
+            style="@style/secondCalculatorButton" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

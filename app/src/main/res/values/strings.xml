@@ -40,5 +40,8 @@
     <string name="arcsin">sin⁻¹</string>
     <string name="arccos">cos⁻¹</string>
     <string name="arctan">tan⁻¹</string>
+    <string name="log">log</string>
+    <string name="ln">ln</string>
+    <string name="sqrt">√¯¯</string>
 
 </resources>
