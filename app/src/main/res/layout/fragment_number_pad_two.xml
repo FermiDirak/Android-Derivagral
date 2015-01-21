@@ -3,58 +3,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context="manuele.bryan.derivagral.NumberPadTwo">
 
     <LinearLayout
         android:id="@+id/row1"
-        style="@style/row"
-        android:layout_weight="1">
+        style="@style/row">
 
         <Button
             android:id="@+id/sin"
-            style="@style/calculatorButtonDark"
-            android:text="@string/sin" />
+            style="@style/secondCalculatorButton"
+            android:text="@string/sin"/>
 
         <Button
             android:id="@+id/cos"
-            style="@style/calculatorButtonDark"
+            style="@style/secondCalculatorButton"
             android:text="@string/cos" />
 
         <Button
             android:id="@+id/tan"
-            style="@style/calculatorButtonDark"
+            style="@style/secondCalculatorButton"
             android:text="@string/tan" />
 
         <Button
             android:id="@+id/pi"
-            style="@style/calculatorButtonDark"
+            style="@style/secondCalculatorButton"
             android:text="@string/pi" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/row2"
-        style="@style/row"
-        android:layout_weight="1">
+        style="@style/row">
 
         <Button
             android:id="@+id/arcsin"
-            style="@style/calculatorButtonDark"
+            style="@style/secondCalculatorButton"
             android:text="@string/arcsin" />
 
         <Button
             android:id="@+id/arccos"
-            style="@style/calculatorButtonDark"
+            style="@style/secondCalculatorButton"
             android:text="@string/arccos" />
 
         <Button
             android:id="@+id/arctan"
-            style="@style/calculatorButtonDark"
+            style="@style/secondCalculatorButton"
             android:text="@string/arctan" />
 
         <Button
             android:id="@+id/e"
-            style="@style/calculatorButtonDark"
+            style="@style/secondCalculatorButton"
             android:text="@string/e" />
 
     </LinearLayout>

@@ -13,6 +13,7 @@
     <item name="soft_green" type="color">#b7c8b7</item>
     <item name="green" type="color">#93ac93</item>
     <item name="dark_green" type="color">#6f916f</item>
+    <item name="second_green" type="color">#4faf97</item>
     <item name="really_dark_green" type="color">#374837</item>
 
 </resources>
