@@ -23,6 +23,21 @@ public class AlphaAPI {
     public String integralFunction = "";
 
     public AlphaAPI(Context context, String input) {
+
+        if (input.length() == 0) {
+
+            inputFunction = "0";
+            derivativeFunction = "= 0";
+            integralFunction = "= 0";
+            return;
+
+        } else if (!input.contains("x")) {
+            inputFunction = input;
+            derivativeFunction = "= 0";
+            integralFunction = inputFunction + "= x";
+            return;
+        }
+
         WAEngine engine = new WAEngine();
         engine.setAppID(APP_ID);
         engine.addFormat("plaintext");
