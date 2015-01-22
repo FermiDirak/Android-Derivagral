@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import manuele.bryan.derivagral.Adapters.SectionsPagerAdapter;
 
 
@@ -22,6 +25,7 @@ public class MainActivity extends Activity implements FragComm {
     TextView fXTextView;
     TextView equationTextView;
 
+    List<String> equationList = new ArrayList<>();
     String equationString = "";
 
     @Override
@@ -65,21 +69,40 @@ public class MainActivity extends Activity implements FragComm {
     @Override
     public void respond(String data) {
         if (data.equals(getString(R.string.enter))) {
+
             createAnswerDialog();
             return;
         }
-        else if (data.equals(getString(R.string.c))) {
-            equationString = "";
-        }
-        else if (data.equals(getString(R.string.delete))) {
-            if (equationString.length() > 0) {
-                equationString = equationString.substring(0, equationString.length() - 1);
+        else {
+            if (data.equals(getString(R.string.c))) {
+                equationList.clear();
+            } else if (data.equals(getString(R.string.delete))) {
+                if (equationString.length() > 0) {
+                    equationList.remove(equationList.size() - 1);
+                }
+            } else if (data.equals(getString(R.string.sin))|| data.equals(getString(R.string.cos)) ||
+                    data.equals(getString(R.string.tan)) || data.equals(getString(R.string.arcsin)) ||
+                    data.equals(getString(R.string.arccos)) || data.equals(getString(R.string.arctan)) ||
+                    data.equals(getString(R.string.log)) || data.equals(getString(R.string.ln))) {
+                equationList.add(data + "(");
+            } else if (data.equals(getString(R.string.sqrt))) {
+                equationList.add("sqrt(");
+            } else{
+                equationList.add(data);
             }
-        } else{
-            equationString = equationString + data;
+
+            renderEquationString();
         }
 
         equationTextView.setText(equationString);
+    }
+
+    public void renderEquationString() {
+        equationString = "";
+
+        for (int i = 0; i < equationList.size(); i++) {
+            equationString = equationString + equationList.get(i);
+        }
     }
 
     private void createAnswerDialog() {
